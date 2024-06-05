@@ -8,6 +8,8 @@ const show = ref(false)
 </script>
 
 <template>
+    <!-- 这是侧边栏底部：设置功能区 -->
+
   <footer class="flex items-center justify-between min-w-0 p-4 overflow-hidden border-t dark:border-neutral-800">
     <div class="flex-1 flex-shrink-0 overflow-hidden">
       <UserAvatar />

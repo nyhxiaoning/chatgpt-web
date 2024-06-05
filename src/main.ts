@@ -4,6 +4,9 @@ import { setupI18n } from './locales'
 import { setupAssets, setupScrollbarStyle } from './plugins'
 import { setupStore } from './store'
 import { setupRouter } from './router'
+// TODO:
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css'
 
 async function bootstrap() {
   const app = createApp(App)
@@ -16,6 +19,9 @@ async function bootstrap() {
   setupI18n(app)
 
   await setupRouter(app)
+
+  // TODO:elementplus
+  app.use(ElementPlus);
 
   app.mount('#app')
 }

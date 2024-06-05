@@ -1,7 +1,10 @@
 <script setup lang='ts'>
 import type { CSSProperties } from 'vue'
 import { computed, ref, watch } from 'vue'
+// NLayoutSider：用于创建侧边栏布局组件，支持导航和其他侧边内容。
 import { NButton, NLayoutSider, useDialog } from 'naive-ui'
+import { ElButton } from 'element-plus';
+
 import List from './List.vue'
 import Footer from './Footer.vue'
 import { useAppStore, useChatStore } from '@/store'
@@ -75,6 +78,8 @@ watch(
 </script>
 
 <template>
+  
+
   <NLayoutSider
     :collapsed="collapsed"
     :collapsed-width="0"
@@ -89,9 +94,13 @@ watch(
     <div class="flex flex-col h-full" :style="mobileSafeArea">
       <main class="flex flex-col flex-1 min-h-0">
         <div class="p-4">
+    <!-- 
           <NButton dashed block @click="handleAdd">
             {{ $t('chat.newChatButton') }}
           </NButton>
+这是一个按钮 -->
+					  <el-button type="primary" @click="handleAdd">{{ $t('chat.newChatButton') }}</el-button>
+
         </div>
         <div class="flex-1 min-h-0 pb-4 overflow-hidden">
           <List />
@@ -110,6 +119,7 @@ watch(
       <Footer />
     </div>
   </NLayoutSider>
+ 
   <template v-if="isMobile">
     <div v-show="!collapsed" class="fixed inset-0 z-40 w-full h-full bg-black/40" @click="handleUpdateCollapsed" />
   </template>

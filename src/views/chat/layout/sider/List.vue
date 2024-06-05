@@ -51,7 +51,9 @@ function isActive(uuid: number) {
 </script>
 
 <template>
+ 
   <NScrollbar class="px-4">
+    <!-- 这是一个新建List左侧对话窗口的UI -->
     <div class="flex flex-col gap-2 text-sm">
       <template v-if="!dataSources.length">
         <div class="flex flex-col items-center mt-4 text-center text-neutral-300">

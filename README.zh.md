@@ -1,44 +1,32 @@
 # ChatGPT Web
+## 修改记录：
+（1） TODO:暂时关闭当前的权限session权限管理。放行：next()
+具体文件permission.ts
+（2）提示词商店是一个json文件，对应地址如下：
+https://raw.githubusercontent.com/PlexPt/awesome-chatgpt-prompts-zh/main/prompts-zh.json
 
-> 声明：此项目只发布于 GitHub，基于 MIT 协议，免费且作为开源学习使用。并且不会有任何形式的卖号、付费服务、讨论群、讨论组等行为。谨防受骗。
+各种中文提示词指南：
+https://github.com/nyhxiaoning/awesome-chatgpt-prompts-zh
+如需编程请使用https://github.com/PlexPt/awesome-chatgpt-prompts-zh/blob/main/prompts-zh.json
 
-[English](README.md)
 
-![cover](./docs/c1.png)
-![cover2](./docs/c2.png)
+## 替换native-ui为element-plus
 
-- [ChatGPT Web](#chatgpt-web)
-	- [介绍](#介绍)
-	- [待实现路线](#待实现路线)
-	- [前置要求](#前置要求)
-		- [Node](#node)
-		- [PNPM](#pnpm)
-		- [填写密钥](#填写密钥)
-	- [安装依赖](#安装依赖)
-		- [后端](#后端)
-		- [前端](#前端)
-	- [测试环境运行](#测试环境运行)
-		- [后端服务](#后端服务)
-		- [前端网页](#前端网页)
-	- [环境变量](#环境变量)
-	- [打包](#打包)
-		- [使用 Docker](#使用-docker)
-			- [Docker 参数示例](#docker-参数示例)
-			- [Docker build \& Run](#docker-build--run)
-			- [Docker compose](#docker-compose)
-			- [防止爬虫抓取](#防止爬虫抓取)
-		- [使用 Railway 部署](#使用-railway-部署)
-			- [Railway 环境变量](#railway-环境变量)
-		- [使用 Sealos 部署](#使用-sealos-部署)
-		- [手动打包](#手动打包)
-			- [后端服务](#后端服务-1)
-			- [前端网页](#前端网页-1)
-	- [常见问题](#常见问题)
-	- [参与贡献](#参与贡献)
-	- [致谢](#致谢)
-	- [赞助](#赞助)
-	- [License](#license)
-## 介绍
+- Naive UI 组件	替换为：Element Plus 组件
+NButton	替换为：el-button
+NLayoutSider	替换为：el-aside
+useDialog	替换为：el-dialog
+NInput	替换为：el-input
+NSelect	替换为：el-select
+NForm	替换为：el-form
+NFormItem	替换为：el-form-item
+NTable	替换为：el-table
+
+
+
+
+
+## 介绍使用代理服务的方式
 
 支持双模型，提供了两种非官方 `ChatGPT API` 方法
 
@@ -313,55 +301,3 @@ PS: 不进行打包，直接在服务器上运行 `pnpm start` 也可
 
 [参考信息](https://cn.vitejs.dev/guide/static-deploy.html#building-the-app)
 
-```shell
-pnpm build
-```
-
-## 常见问题
-Q: 为什么 `Git` 提交总是报错？
-
-A: 因为有提交信息验证，请遵循 [Commit 指南](./CONTRIBUTING.md)
-
-Q: 如果只使用前端页面，在哪里改请求接口？
-
-A: 根目录下 `.env` 文件中的 `VITE_GLOB_API_URL` 字段。
-
-Q: 文件保存时全部爆红?
-
-A: `vscode` 请安装项目推荐插件，或手动安装 `Eslint` 插件。
-
-Q: 前端没有打字机效果？
-
-A: 一种可能原因是经过 Nginx 反向代理，开启了 buffer，则 Nginx 会尝试从后端缓冲一定大小的数据再发送给浏览器。请尝试在反代参数后添加 `proxy_buffering off;`，然后重载 Nginx。其他 web server 配置同理。
-
-## 参与贡献
-
-贡献之前请先阅读 [贡献指南](./CONTRIBUTING.md)
-
-感谢所有做过贡献的人!
-
-<a href="https://github.com/Chanzhaoyu/chatgpt-web/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Chanzhaoyu/chatgpt-web" />
-</a>
-
-## 致谢
-
-感谢 [JetBrains](https://www.jetbrains.com/) 为这个项目提供免费开源许可的软件。
-
-## 赞助
-
-如果你觉得这个项目对你有帮助，并且情况允许的话，可以给我一点点支持，总之非常感谢支持～
-
-<div style="display: flex; gap: 20px;">
-	<div style="text-align: center">
-		<img style="max-width: 100%" src="./docs/wechat.png" alt="微信" />
-		<p>WeChat Pay</p>
-	</div>
-	<div style="text-align: center">
-		<img style="max-width: 100%" src="./docs/alipay.png" alt="支付宝" />
-		<p>Alipay</p>
-	</div>
-</div>
-
-## License
-MIT © [ChenZhaoYu](./license)

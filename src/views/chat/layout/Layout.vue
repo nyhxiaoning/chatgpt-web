@@ -39,7 +39,9 @@ const getContainerClass = computed(() => {
     <div class="h-full overflow-hidden" :class="getMobileClass">
       <NLayout class="z-40 transition" :class="getContainerClass" has-sider>
         <Sider />
+        <!-- 下面是主要内容区：聊天对话界面 -->
         <NLayoutContent class="h-full">
+        
           <RouterView v-slot="{ Component, route }">
             <component :is="Component" :key="route.fullPath" />
           </RouterView>
